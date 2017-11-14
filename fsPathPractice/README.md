@@ -1,16 +1,16 @@
-#How do you use the fs and path modules to interact with the filesystem?
+## How do you use the `fs` and `path` modules to interact with the filesystem?
 
-###Before using asynchronous I/O to build a Node.js HTTP server, it's a good idea to practice interacting with the filesystem first. For this, you use the fs and path modules.
+Before using asynchronous I/O to build a Node.js HTTP server, it's a good idea to practice interacting with the filesystem first. For this, you use the `fs` and `path` modules.
 
-###The fs module is the built-in Node.js API for managing a computer's filesystem. As you can see from the documentation, the fs module can perform a plethora of I/O operations. Each operation has both an asynchronous and synchronous method (e.g. readFile and readFileSync).
+The `fs` module is the built-in Node.js API for managing a computer's filesystem. As you can see from the [documentation][fs], the `fs` module can perform a plethora of I/O operations. Each operation has both an asynchronous and synchronous method (e.g. `readFile` and `readFileSync`).
 
-###The path module is the built-in Node.js API for handling and transforming file paths across different operating systems. The path module is indispensable when building cross-platform applications. On Unix-based operating systems, the path delimiter is the forward slash /. While on Windows, it's the back slash \. As you can see from the documentation, the path module is just a collection of utilities that don't perform any I/O operations. In other words, the methods in the path module don't consult the filesystem to see whether or not a path is valid.
+The `path` module is the built-in Node.js API for handling and transforming file paths across different operating systems. The `path` module is indispensable when building cross-platform applications. On Unix-based operating systems, the path delimiter is the forward slash `/`. While on Windows, it's the back slash `\`. As you can see from the [documentation][path], the `path` module is just a collection of utilities that don't perform any I/O operations. In other words, the methods in the `path` module don't consult the filesystem to see whether or not a path is valid.
 
-###With the documentation handy, let's play around with the fs and path modules. Imagine you're throwing a party and you need to keep a database of all the guests you plan on inviting. Instead of maintaining a Google Spreadsheet, you decide to build a small, command-line application written in Node.js. The application will accept a few subcommands and log the results to the console. The subcommands will manage the content of a database which will be a JSON-formatted guests.json file.
+With the documentation handy, let's play around with the `fs` and `path` modules. Imagine you're throwing a party and you need to keep a database of all the guests you plan on inviting. Instead of maintaining a Google Spreadsheet, you decide to build a small, command-line application written in Node.js. The application will accept a few subcommands and log the results to the console. The subcommands will manage the content of a database which will be a JSON-formatted `guests.json` file.
 
-###To get started, you'll need to create a new project.
+To get started, you'll need to create a new project.
 
-```
+```shell
 mkdir party
 cd party
 echo '[]' > guests.json
@@ -20,13 +20,14 @@ git add .
 git commit -m 'Initial commit'
 ```
 
-###Open the party project in your text editor.
+Open the `party` project in your text editor.
 
-```
+```shell
 atom .
 ```
 
-###And type in the following code to the guests.js file.
+And type in the following code to the `guests.js` file.
+
 ```javascript
 'use strict';
 
@@ -44,21 +45,22 @@ fs.readFile(guestsPath, 'utf8', function(err, data) {
   console.log(guests);
 });
 ```
-###Now, run the program using the node command.
 
-```
+Now, run the program using the `node` command.
+
+```shell
 $ node guests.js
 []
 ```
 
-###Then, add and commit the latest changes to the party project's repository.
+Then, add and commit the latest changes to the `party` project's repository.
 
-```
+```shell
 git add .
 git commit -m 'Add the basic scaffold'
 ```
 
-###Next, refactor the guests.js file by adding a read subcommand.
+Next, refactor the `guests.js` file by adding a `read` subcommand.
 
 ```javascript
 'use strict';
@@ -88,9 +90,9 @@ else {
 }
 ```
 
-###Now, run the program using the node command, both with and without the read subcommand.
+Now, run the program using the `node` command, both with and without the `read` subcommand.
 
-```
+```shell
 $ node guests.js
 Usage: node guests.js read
 
@@ -98,13 +100,14 @@ $ node guests.js read
 []
 ```
 
-###Then, add and commit the latest changes to the party project's repository.
+Then, add and commit the latest changes to the `party` project's repository.
 
-```
+```shell
 git add .
 git commit -m 'Add the read subcommand'
 ```
-###Next, refactor the guests.js file by adding a create subcommand as well.
+
+Next, refactor the `guests.js` file by adding a `create` subcommand as well.
 
 ```javascript
 'use strict';
@@ -161,9 +164,9 @@ else {
 }
 ```
 
-###Now, run the program using the node command, both with and without the create subcommand.
+Now, run the program using the `node` command, both with and without the `create` subcommand.
 
-```
+```shell
 $ node guests.js
 Usage: node guests.js [read | create]
 
@@ -183,11 +186,11 @@ $ node guests.js read
 [ 'Mary', 'Don' ]
 ```
 
-###Finally, add and commit the latest changes to the party project's repository.
+Finally, add and commit the latest changes to the `party` project's repository.
 
-```
+```shell
 git add .
 git commit -m 'Add the create subcommand'
 ```
 
-###And there you have it! You just built a small Node.js program to read and create party guests to a file-based database.
+And there you have it! You just built a small Node.js program to read and create party guests to a file-based database.
