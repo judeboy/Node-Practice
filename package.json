@@ -1,0 +1,16 @@
+{
+  "name": "nodepractice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clockmoji": "clockmoji",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "clockmoji": "^1.0.4"
+  }
+}
