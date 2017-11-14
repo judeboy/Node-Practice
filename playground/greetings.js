@@ -17,9 +17,10 @@ function noComment(name){
 //exporting the functions above as an object full of functions
 module.exports = {
   hello,
-  bye
+  bye,
+  noComment
 };
 
 
-
+//
 // console.log("This logged when you required the greetings module.");

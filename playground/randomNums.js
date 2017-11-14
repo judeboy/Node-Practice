@@ -19,7 +19,8 @@ module.exports = (function(){
   return{
     oneDigit,
     twoDigit,
-    threeDigit
+    threeDigit,
+    fourDigit
   }
 })()
 
